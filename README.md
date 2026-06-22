@@ -42,7 +42,8 @@ On Vercel, add the same variables in Project Settings → Environment Variables.
 
 ## Contact Form Submissions
 
-The Join form posts to `/api/contact` and saves responses locally in:
+The student and parent information form posts to `/api/contact` and saves
+responses locally in:
 
 ```bash
 data/submissions.json

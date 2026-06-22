@@ -24,7 +24,8 @@ export default async function SubmissionsPage() {
               Contact Form Submissions
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-              These are responses saved from the Join the NYM Community form.
+              These are responses saved from the NYM student and parent
+              information form.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -97,15 +98,38 @@ export default async function SubmissionsPage() {
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs font-semibold">
                         <span className="rounded bg-navy-50 px-3 py-1 text-navy-800">
-                          {submission.interest}
+                          {submission.respondentType}
                         </span>
                         <span className="rounded bg-slate-100 px-3 py-1 text-slate-600">
                           {new Date(submission.createdAt).toLocaleString()}
                         </span>
                       </div>
                     </div>
+                    <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
+                      <div className="rounded bg-mist p-3">
+                        <dt className="font-semibold text-navy-950">Michigan area</dt>
+                        <dd className="mt-1 text-slate-600">
+                          {submission.studentLocation || "Not provided"}
+                        </dd>
+                      </div>
+                      <div className="rounded bg-mist p-3">
+                        <dt className="font-semibold text-navy-950">High school</dt>
+                        <dd className="mt-1 text-slate-600">
+                          {submission.highSchool || "Not provided"}
+                        </dd>
+                      </div>
+                      <div className="rounded bg-mist p-3">
+                        <dt className="font-semibold text-navy-950">Graduation year</dt>
+                        <dd className="mt-1 text-slate-600">
+                          {submission.graduationYear || "Not provided"}
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 className="mt-5 text-sm font-semibold text-navy-950">
+                      What they want from a meeting
+                    </h3>
                     <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                      {submission.message}
+                      {submission.meetingGoals}
                     </p>
                   </article>
                 ))}

@@ -7,7 +7,9 @@ import {
   GraduationCap,
   Handshake,
   HeartHandshake,
+  Linkedin,
   Lightbulb,
+  Mail,
   MapPin,
   Network,
   UsersRound
@@ -37,7 +39,7 @@ const goals = [
   {
     title: "Student Leadership",
     icon: Lightbulb,
-    items: ["Leadership development", "Volunteering", "Career exploration"]
+    items: ["Leadership development", "Community service", "Career exploration"]
   },
   {
     title: "Community Connection",
@@ -63,7 +65,7 @@ const programs = [
     title: "Student Development",
     icon: BookOpen,
     description:
-      "A space for students to build leadership, explore interests, volunteer, and prepare for future academic and career goals."
+      "A space for students to build leadership, explore interests, serve the community, and prepare for future academic and career goals."
   },
   {
     title: "Community Mentorship",
@@ -79,20 +81,26 @@ const members = [
     role: "Founder",
     grade: "Upcoming Senior",
     bio: "Passionate about leadership, education, and creating opportunities for students and families. Founded NYM to help students access guidance, resources, and community support.",
+    email: "kishyogiri@gmail.com",
+    linkedin: "https://www.linkedin.com/in/kishyo-giri-882173341/",
     image: ""
   },
   {
     name: "Abhash Aryal",
     role: "Co-Founder & Website Creator",
     grade: "Upcoming Senior",
-    bio: "Interested in computer science, technology, and using digital tools to solve problems. Designed and developed the NYM website.",
+    bio: "Interested in computer science, technology, and using digital tools to solve problems. Designed and developed the NYM website to help families find clearer information and feel more supported in the college planning process.",
+    email: "abhasharyal1@gmail.com",
+    linkedin: "https://www.linkedin.com/in/abhash-aryal-346159300/",
     image: ""
   },
   {
     name: "Ashesh Dhakal",
     role: "Member",
     grade: "Upcoming Junior",
-    bio: "Interested in business, leadership, and contributing to student-centered community initiatives.",
+    bio: "Interested in business, leadership, and contributing to student-centered community initiatives. Wants to support NYM because strong information and community guidance can help families feel more prepared for the future.",
+    email: "asheshdhakal47@gmail.com",
+    linkedin: "",
     image: ""
   }
 ];
@@ -131,7 +139,7 @@ function Header() {
           href="#contact"
           className="focus-ring hidden rounded bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-navy-800 md:inline-flex"
         >
-          Join NYM
+          Get Updates
         </a>
       </div>
     </header>
@@ -188,17 +196,17 @@ function Hero() {
       <div className="absolute inset-x-0 top-0 h-56 bg-[linear-gradient(180deg,rgba(245,248,251,1),rgba(255,255,255,0))]" />
       <div className="section-container relative grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 lg:grid-cols-[1.04fr_0.96fr] lg:py-20">
         <Reveal>
-          <p className="eyebrow">A new student-led community initiative</p>
+          <p className="eyebrow">A student-led information initiative</p>
           <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-normal text-navy-950 sm:text-5xl lg:text-6xl">
             Empowering Nepali Students for College & Future Success
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-            Helping students and families access guidance, resources, and
-            opportunities for higher education and future careers.
+            Sharing guidance, resources, and opportunities that help students
+            and families prepare for higher education and future careers.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#contact">
-              Join NYM <ArrowRight className="h-4 w-4" />
+              Share Your Questions <ArrowRight className="h-4 w-4" />
             </ButtonLink>
             <ButtonLink href="#mission" variant="secondary">
               Learn More
@@ -207,24 +215,24 @@ function Hero() {
 
           <div className="mt-10 border-l-2 border-saffron pl-5">
             <p className="max-w-2xl text-sm leading-7 text-slate-600">
-              NYM is launching as a welcoming place for students and families to
-              learn together, ask questions, and build confidence around the
-              college preparation process.
+              NYM is launching as a student-led effort to share useful
+              information, answer common questions, and make college planning
+              easier to understand for families.
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={0.12} className="relative">
           <div className="relative rounded border border-slate-200 bg-white p-3 shadow-soft">
-            <div className="grid gap-3 sm:grid-cols-[0.8fr_1fr]">
-              <div className="relative min-h-[360px] overflow-hidden rounded bg-navy-950 sm:min-h-[520px]">
+            <div className="grid gap-3 lg:grid-cols-[0.92fr_1fr]">
+              <div className="relative aspect-[1086/1448] overflow-hidden rounded bg-white">
                 <Image
                   src="/images/nym-flyer.jpeg"
                   alt="Nepali Youth of Michigan launch flyer"
                   fill
                   priority
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, 360px"
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 420px"
                 />
               </div>
               <div className="flex flex-col justify-between rounded bg-mist p-6">
@@ -236,7 +244,7 @@ function Hero() {
                   <p className="mt-4 text-sm leading-7 text-slate-600">
                     The flyer introduces NYM as a college readiness and future
                     success initiative for students and families. This website
-                    gives that message a clear, professional place to grow.
+                    gives that information a clear, professional place to live.
                   </p>
                 </div>
                 <div className="mt-8 rounded border border-white bg-white p-5">
@@ -288,8 +296,8 @@ function Mission() {
             </div>
             <div className="mt-8 rounded border border-white/10 bg-navy-900/60 p-4">
               <p className="text-sm leading-6 text-navy-100">
-                A launch initiative focused on clarity, confidence, and shared
-                learning for students and families.
+                A launch initiative focused on clear information, thoughtful
+                guidance, and shared learning for students and families.
               </p>
             </div>
           </div>
@@ -297,14 +305,14 @@ function Mission() {
         <Reveal delay={0.08}>
           <p className="eyebrow text-navy-100">Our Mission</p>
           <h2 className="max-w-4xl text-3xl font-semibold leading-tight tracking-normal sm:text-5xl">
-            NYM helps middle and high school students and families navigate
-            college preparation, discover opportunities, and build the skills
-            needed for future success.
+            NYM targets students and parents with information that helps them
+            navigate college preparation, discover opportunities, and understand
+            the skills needed for future success.
           </h2>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-navy-100">
             As a new organization, NYM is beginning with a simple purpose:
             make college and future planning feel more understandable,
-            accessible, and community-supported.
+            accessible, and community-supported for families.
           </p>
         </Reveal>
       </div>
@@ -361,8 +369,9 @@ function Programs() {
       <div className="section-container">
         <Reveal>
           <SectionHeading eyebrow="Programs" title="Launch programs designed around real family questions">
-            NYM will focus on practical areas that help students and parents
-            prepare for college, understand opportunities, and connect with others.
+            NYM will focus on practical information that helps students and
+            parents prepare for college, understand opportunities, and learn
+            from community experiences.
           </SectionHeading>
         </Reveal>
 
@@ -424,8 +433,8 @@ function Events() {
             </div>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
-              NYM will host meetings, workshops, and discussions for students
-              and families.
+              NYM will host meetings, workshops, and discussions to share
+              information with students and families.
             </p>
 
             <div className="mt-7 grid gap-4 border-t border-slate-100 pt-6 text-sm text-slate-600 sm:grid-cols-2">
@@ -452,7 +461,8 @@ function Team() {
         <Reveal>
           <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYM">
             NYM is being started by students who care about leadership,
-            education, and building a stronger support system for families.
+            education, and making useful college-planning information easier
+            for families to access.
           </SectionHeading>
         </Reveal>
 
@@ -486,6 +496,26 @@ function Team() {
                 </div>
                 <h3 className="mt-4 text-2xl font-semibold text-navy-950">{member.name}</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-600">{member.bio}</p>
+                <div className="mt-6 flex flex-wrap gap-3 border-t border-slate-100 pt-5">
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="focus-ring inline-flex items-center gap-2 rounded border border-slate-200 px-3 py-2 text-sm font-semibold text-navy-900 transition hover:border-navy-300 hover:bg-navy-50"
+                  >
+                    <Mail className="h-4 w-4" />
+                    {member.email}
+                  </a>
+                  {member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="focus-ring inline-flex items-center gap-2 rounded border border-slate-200 px-3 py-2 text-sm font-semibold text-navy-900 transition hover:border-navy-300 hover:bg-navy-50"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn profile
+                    </a>
+                  ) : null}
+                </div>
               </article>
             </Reveal>
           ))}
@@ -503,19 +533,20 @@ function Contact() {
           <div>
             <p className="eyebrow">Contact</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-normal text-navy-950 sm:text-4xl">
-              Join the NYM Community
+              Share Your Questions
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Use this form to introduce yourself, ask a question, or share how
-              you would like to get involved as NYM launches.
+              Use this form to help NYM understand what students and parents
+              want to learn from upcoming meetings and information sessions.
             </p>
             <div className="mt-8 rounded border border-slate-200 bg-mist p-5">
               <p className="text-sm font-semibold text-navy-950">
                 Where does the form information go?
               </p>
               <p className="mt-2 text-sm leading-7 text-slate-600">
-                This form saves responses so the NYM team can review them and
-                follow up with students, parents, volunteers, or partners.
+                This form saves responses so the NYM team can review student
+                and parent questions, plan useful meetings, and follow up when
+                needed.
               </p>
             </div>
           </div>

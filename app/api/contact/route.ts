@@ -3,13 +3,16 @@ import { hasRecentDuplicate, saveSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
-const allowedInterests = new Set(["Student", "Parent", "Volunteer", "Partner"]);
+const allowedRespondentTypes = new Set(["Student", "Parent"]);
 const duplicateWindowMs = 10 * 60 * 1000;
 const maxBodyBytes = 10_000;
 const maxLengths = {
   name: 80,
   email: 120,
-  message: 1_500
+  studentLocation: 100,
+  highSchool: 120,
+  graduationYear: 4,
+  meetingGoals: 1_500
 };
 
 function cleanText(value: unknown) {
@@ -34,15 +37,26 @@ export async function POST(request: Request) {
 
   const name = cleanText(body?.name);
   const email = cleanText(body?.email).toLowerCase();
-  const interest = cleanText(body?.interest);
-  const message = cleanText(body?.message);
+  const respondentType = cleanText(body?.respondentType);
+  const studentLocation = cleanText(body?.studentLocation);
+  const highSchool = cleanText(body?.highSchool);
+  const graduationYear = cleanText(body?.graduationYear);
+  const meetingGoals = cleanText(body?.meetingGoals);
   const website = cleanText(body?.website);
 
   if (website) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!name || !email || !interest || !message) {
+  if (
+    !name ||
+    !email ||
+    !respondentType ||
+    !studentLocation ||
+    !highSchool ||
+    !graduationYear ||
+    !meetingGoals
+  ) {
     return NextResponse.json(
       { error: "Please complete every field before submitting." },
       { status: 400 }
@@ -52,7 +66,10 @@ export async function POST(request: Request) {
   if (
     name.length > maxLengths.name ||
     email.length > maxLengths.email ||
-    message.length > maxLengths.message
+    studentLocation.length > maxLengths.studentLocation ||
+    highSchool.length > maxLengths.highSchool ||
+    graduationYear.length > maxLengths.graduationYear ||
+    meetingGoals.length > maxLengths.meetingGoals
   ) {
     return NextResponse.json(
       { error: "One or more fields are too long. Please shorten your response." },
@@ -67,20 +84,40 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!allowedInterests.has(interest)) {
+  if (!allowedRespondentTypes.has(respondentType)) {
     return NextResponse.json(
-      { error: "Please choose a valid interest option." },
+      { error: "Please choose Student or Parent." },
       { status: 400 }
     );
   }
 
-  const isDuplicate = await hasRecentDuplicate(email, interest, message, duplicateWindowMs);
+  if (!/^\d{4}$/.test(graduationYear)) {
+    return NextResponse.json(
+      { error: "Please enter a valid four-digit graduation year." },
+      { status: 400 }
+    );
+  }
+
+  const isDuplicate = await hasRecentDuplicate(
+    email,
+    respondentType,
+    meetingGoals,
+    duplicateWindowMs
+  );
 
   if (isDuplicate) {
     return NextResponse.json({ ok: true, duplicate: true });
   }
 
-  await saveSubmission({ name, email, interest, message });
+  await saveSubmission({
+    name,
+    email,
+    respondentType,
+    studentLocation,
+    highSchool,
+    graduationYear,
+    meetingGoals
+  });
 
   return NextResponse.json({ ok: true });
 }
