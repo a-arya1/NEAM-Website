@@ -49,6 +49,12 @@ responses locally in:
 data/submissions.json
 ```
 
+The support interest form posts to `/api/support` and saves responses locally in:
+
+```bash
+data/supporters.json
+```
+
 View saved responses at:
 
 ```bash

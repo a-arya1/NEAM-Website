@@ -16,11 +16,13 @@ import {
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Motion";
+import { SupportForm } from "@/components/SupportForm";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
   { label: "Programs", href: "#programs" },
   { label: "Events", href: "#events" },
+  { label: "Support", href: "#support" },
   { label: "Team", href: "#team" },
   { label: "Contact", href: "#contact" }
 ];
@@ -525,6 +527,46 @@ function Team() {
   );
 }
 
+function Support() {
+  return (
+    <section id="support" className="bg-navy-950 py-20 text-white sm:py-28">
+      <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <Reveal>
+          <div>
+            <p className="eyebrow text-navy-100">Support NYM</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-normal sm:text-4xl">
+              Help make future meetings and resources possible.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-navy-100">
+              NYM is preparing ways for community members to support student and
+              parent information sessions. If you are interested in supporting
+              future programming, share your name and email and the NYM team
+              will follow up with details.
+            </p>
+            <div className="mt-8 grid gap-4 text-sm leading-6 text-navy-100 sm:grid-cols-2">
+              {[
+                "Meeting materials and printed resources",
+                "Student and parent workshops",
+                "Community outreach",
+                "Future event support"
+              ].map((item) => (
+                <div key={item} className="flex gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-saffron" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <SupportForm />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" className="bg-white py-20 sm:py-28">
@@ -597,6 +639,7 @@ export default function Home() {
         <Goals />
         <Programs />
         <Events />
+        <Support />
         <Team />
         <Contact />
       </main>
