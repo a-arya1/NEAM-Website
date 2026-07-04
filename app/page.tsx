@@ -409,9 +409,10 @@ function Events() {
     <section id="events" className="bg-white py-20 sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <Reveal>
-          <SectionHeading eyebrow="Upcoming Events" title="NYM is preparing its first community gatherings">
-            As a brand-new initiative, NYM is building toward meetings,
-            workshops, and discussions for students and families.
+          <SectionHeading eyebrow="Upcoming Events" title="Join NYM for an upcoming community meeting">
+            NYM is hosting an information-focused meeting for students and
+            families to learn, ask questions, and discuss future college
+            readiness resources.
           </SectionHeading>
         </Reveal>
 
@@ -420,7 +421,7 @@ function Events() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-navy-700">
-                  Coming Soon
+                  Upcoming Meeting
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-navy-950">
                   Community Meeting
@@ -442,11 +443,11 @@ function Events() {
             <div className="mt-7 grid gap-4 border-t border-slate-100 pt-6 text-sm text-slate-600 sm:grid-cols-2">
               <span className="flex gap-2">
                 <CalendarDays className="h-4 w-4 text-saffron" />
-                Date: Coming Soon
+                Saturday, July 11, 2026 at 2:00 PM
               </span>
               <span className="flex gap-2">
                 <MapPin className="h-4 w-4 text-saffron" />
-                Location: Coming Soon
+                Bloomington Library, Michigan
               </span>
             </div>
           </article>
