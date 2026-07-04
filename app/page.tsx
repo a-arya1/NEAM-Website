@@ -447,7 +447,8 @@ function Events() {
               </span>
               <span className="flex gap-2">
                 <MapPin className="h-4 w-4 text-saffron" />
-                Bloomington Library, Michigan
+                Bloomfield Township Public Library, 1099 Lone Pine Rd,
+                Bloomfield Township, MI 48302
               </span>
             </div>
           </article>
