@@ -443,7 +443,7 @@ function Events() {
             <div className="mt-7 grid gap-4 border-t border-slate-100 pt-6 text-sm text-slate-600 sm:grid-cols-2">
               <span className="flex gap-2">
                 <CalendarDays className="h-4 w-4 text-saffron" />
-                Saturday, July 11, 2026 at 2:00 PM
+                Saturday, July 11, 2026 at 4:00 PM
               </span>
               <span className="flex gap-2">
                 <MapPin className="h-4 w-4 text-saffron" />
