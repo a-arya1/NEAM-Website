@@ -10,8 +10,10 @@ import {
   Linkedin,
   Lightbulb,
   Mail,
+  MessageCircle,
   MapPin,
   Network,
+  Video,
   UsersRound
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
@@ -106,6 +108,10 @@ const members = [
     image: ""
   }
 ];
+
+const zoomMeetingUrl =
+  "https://us05web.zoom.us/j/7779407788?pwd=7ljDSKeMLW8ZyZ1bVD5SqqFA3i3a6E.1&omn=88302413887";
+const zoomChatUrl = "https://us05web.zoom.us/launch/jc/88302413887";
 
 function Header() {
   return (
@@ -229,8 +235,8 @@ function Hero() {
             <div className="grid gap-3 lg:grid-cols-[0.92fr_1fr]">
               <div className="relative aspect-[1086/1448] overflow-hidden rounded bg-white">
                 <Image
-                  src="/images/nym-flyer.jpeg"
-                  alt="Nepali Youth of Michigan launch flyer"
+                  src="/images/nym-zoom-poster.svg"
+                  alt="Nepali Youth of Michigan Zoom meeting poster"
                   fill
                   priority
                   className="object-contain"
@@ -239,23 +245,26 @@ function Hero() {
               </div>
               <div className="flex flex-col justify-between rounded bg-mist p-6">
                 <div>
-                  <p className="eyebrow text-navy-800">Launch message</p>
+                  <p className="eyebrow text-navy-800">Upcoming Zoom session</p>
                   <h2 className="mt-4 text-2xl font-semibold leading-tight text-navy-950">
-                    From announcement to organization home
+                    NYM Introduction / Breakdown
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-slate-600">
-                    The flyer introduces NYM as a college readiness and future
-                    success initiative for students and families. This website
-                    gives that information a clear, professional place to live.
+                    Join NYM on August 1 at 7:00 PM Eastern Time for a virtual
+                    session introducing the initiative, explaining what NYM is
+                    building, and sharing how students and parents can ask
+                    questions.
                   </p>
                 </div>
                 <div className="mt-8 rounded border border-white bg-white p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    Association
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-navy-950">
-                    Nepalese Association of Michigan (NeAM)
-                  </p>
+                  <a
+                    href={zoomMeetingUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-navy-800"
+                  >
+                    Join Zoom Meeting <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -409,9 +418,9 @@ function Events() {
     <section id="events" className="bg-white py-20 sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <Reveal>
-          <SectionHeading eyebrow="Upcoming Events" title="Join NYM for an upcoming community meeting">
-            NYM is hosting an information-focused meeting for students and
-            families to learn, ask questions, and discuss future college
+          <SectionHeading eyebrow="Upcoming Events" title="Join NYM for a virtual introduction session">
+            NYM is hosting a Zoom meeting for students and families to learn
+            about the initiative, ask questions, and understand future college
             readiness resources.
           </SectionHeading>
         </Reveal>
@@ -421,35 +430,68 @@ function Events() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-navy-700">
-                  Upcoming Meeting
+                  Zoom Meeting
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-navy-950">
-                  Community Meeting
+                  NYM Introduction / Breakdown
                 </h3>
               </div>
               <a
-                href="#contact"
-                className="focus-ring inline-flex items-center justify-center gap-2 rounded border border-slate-300 px-4 py-2 text-sm font-semibold text-navy-900 transition hover:border-navy-300 hover:bg-navy-50"
+                href={zoomMeetingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring inline-flex items-center justify-center gap-2 rounded bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-navy-800"
               >
-                Get updates <ArrowRight className="h-4 w-4" />
+                Join Zoom Meeting <ArrowRight className="h-4 w-4" />
               </a>
             </div>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
-              NYM will host meetings, workshops, and discussions to share
-              information with students and families.
+              Ashesh Dhakal is hosting a scheduled Zoom session to introduce
+              NYM, break down the initiative, and share information with
+              students and families.
             </p>
 
             <div className="mt-7 grid gap-4 border-t border-slate-100 pt-6 text-sm text-slate-600 sm:grid-cols-2">
               <span className="flex gap-2">
                 <CalendarDays className="h-4 w-4 text-saffron" />
-                Saturday, July 11, 2026 at 4:00 PM
+                Saturday, August 1, 2026 at 7:00 PM Eastern Time
               </span>
               <span className="flex gap-2">
-                <MapPin className="h-4 w-4 text-saffron" />
-                Bloomfield Township Public Library, 1099 Lone Pine Rd,
-                Bloomfield Township, MI 48302
+                <Video className="h-4 w-4 text-saffron" />
+                Meeting ID: 777 940 7788
               </span>
+              <span className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 text-saffron" />
+                Passcode: NYM2026
+              </span>
+              <a
+                href={zoomChatUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950"
+              >
+                <MessageCircle className="h-4 w-4 text-saffron" />
+                Meeting chat link
+              </a>
+              <a
+                href="/images/nym-zoom-poster.svg"
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950"
+              >
+                <MapPin className="h-4 w-4 text-saffron" />
+                Open event poster
+              </a>
+              <a
+                href={zoomMeetingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950 sm:col-span-2"
+              >
+                <ArrowRight className="h-4 w-4 text-saffron" />
+                Full Zoom link
+              </a>
             </div>
           </article>
         </Reveal>

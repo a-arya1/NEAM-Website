@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://neamyouth.vercel.app"),
   title: "Nepali Youth of Michigan | College Readiness & Future Success",
   description:
     "Nepali Youth of Michigan helps students and families access mentorship, resources, and opportunities for college preparation and future success.",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "A community education initiative supporting Nepali students and families through college readiness, mentorship, and future planning.",
     type: "website",
-    images: ["/images/nym-flyer.jpeg"]
+    images: ["/images/nym-zoom-poster.svg"]
   }
 };
 
