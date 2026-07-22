@@ -21,12 +21,12 @@ export default async function SubmissionsPage() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="eyebrow">NYM Admin</p>
+            <p className="eyebrow">NYA Admin</p>
             <h1 className="mt-3 text-3xl font-semibold text-navy-950">
               Contact Form Submissions
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-              These are responses saved from the NYM student and parent
+              These are responses saved from the NYA student and parent
               information form.
             </p>
           </div>
@@ -86,7 +86,7 @@ export default async function SubmissionsPage() {
                   Support Interest
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
-                  People who want NYM to follow up later about ways to support.
+                  People who want NYA to follow up later about ways to support.
                 </p>
               </div>
               {supporters.length === 0 ? (

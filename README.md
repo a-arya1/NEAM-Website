@@ -1,6 +1,6 @@
-# Nepali Youth of Michigan Website
+# Nepali Youth of America Website
 
-Professional nonprofit/youth organization website for Nepali Youth of Michigan (NYM), in association with the Nepalese Association of Michigan (NeAM).
+Professional nonprofit/youth organization website for Nepali Youth of America (NYA), supported by the Nepalese Association of Michigan (NeAM).
 
 ## Tech Stack
 

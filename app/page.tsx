@@ -22,6 +22,7 @@ import { SupportForm } from "@/components/SupportForm";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
+  { label: "NeAM Support", href: "#neam-support" },
   { label: "Programs", href: "#programs" },
   { label: "Events", href: "#events" },
   { label: "Support", href: "#support" },
@@ -84,7 +85,7 @@ const members = [
     name: "Kishyo Giri",
     role: "Founder",
     grade: "Upcoming Senior",
-    bio: "Passionate about leadership, education, and creating opportunities for students and families. Founded NYM to help students access guidance, resources, and community support.",
+    bio: "Passionate about leadership, education, and creating opportunities for students and families. Founded NYA to help students access guidance, resources, and community support.",
     email: "kishyogiri@gmail.com",
     linkedin: "https://www.linkedin.com/in/kishyo-giri-882173341/",
     image: ""
@@ -93,7 +94,7 @@ const members = [
     name: "Abhash Aryal",
     role: "Co-Founder & Website Creator",
     grade: "Upcoming Senior",
-    bio: "Interested in computer science, technology, and using digital tools to solve problems. Designed and developed the NYM website to help families find clearer information and feel more supported in the college planning process.",
+    bio: "Interested in computer science, technology, and using digital tools to solve problems. Designed and developed the NYA website to help families find clearer information and feel more supported in the college planning process.",
     email: "abhasharyal1@gmail.com",
     linkedin: "https://www.linkedin.com/in/abhash-aryal-346159300/",
     image: ""
@@ -102,7 +103,7 @@ const members = [
     name: "Ashesh Dhakal",
     role: "Member",
     grade: "Upcoming Junior",
-    bio: "Interested in business, leadership, and contributing to student-centered community initiatives. Wants to support NYM because strong information and community guidance can help families feel more prepared for the future.",
+    bio: "Interested in business, leadership, and contributing to student-centered community initiatives. Wants to support NYA because strong information and community guidance can help families feel more prepared for the future.",
     email: "asheshdhakal47@gmail.com",
     linkedin: "",
     image: ""
@@ -119,14 +120,14 @@ function Header() {
       <div className="section-container flex h-16 items-center justify-between">
         <a href="#" className="focus-ring flex items-center gap-3 rounded-md">
           <span className="grid h-10 w-10 place-items-center rounded bg-navy-900 text-sm font-bold text-white">
-            NYM
+            NYA
           </span>
           <span>
             <span className="block text-sm font-semibold leading-none text-navy-950">
-              Nepali Youth of Michigan
+              Nepali Youth of America
             </span>
             <span className="mt-1 block text-xs text-slate-500">
-              In association with NeAM
+              Supported by NeAM
             </span>
           </span>
         </a>
@@ -223,7 +224,7 @@ function Hero() {
 
           <div className="mt-10 border-l-2 border-saffron pl-5">
             <p className="max-w-2xl text-sm leading-7 text-slate-600">
-              NYM is launching as a student-led effort to share useful
+              NYA is launching as a student-led effort to share useful
               information, answer common questions, and make college planning
               easier to understand for families.
             </p>
@@ -236,7 +237,7 @@ function Hero() {
               <div className="relative aspect-[1086/1448] overflow-hidden rounded bg-white">
                 <Image
                   src="/images/nym-zoom-poster.svg"
-                  alt="Nepali Youth of Michigan Zoom meeting poster"
+                  alt="Nepali Youth of America Zoom meeting poster"
                   fill
                   priority
                   className="object-contain"
@@ -247,11 +248,11 @@ function Hero() {
                 <div>
                   <p className="eyebrow text-navy-800">Upcoming Zoom session</p>
                   <h2 className="mt-4 text-2xl font-semibold leading-tight text-navy-950">
-                    NYM Introduction / Breakdown
+                    NYA Introduction / Breakdown
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-slate-600">
-                    Join NYM on August 1 at 7:00 PM Eastern Time for a virtual
-                    session introducing the initiative, explaining what NYM is
+                    Join NYA on August 1 at 7:00 PM Eastern Time for a virtual
+                    session introducing the initiative, explaining what NYA is
                     building, and sharing how students and parents can ask
                     questions.
                   </p>
@@ -316,12 +317,12 @@ function Mission() {
         <Reveal delay={0.08}>
           <p className="eyebrow text-navy-100">Our Mission</p>
           <h2 className="max-w-4xl text-3xl font-semibold leading-tight tracking-normal sm:text-5xl">
-            NYM targets students and parents with information that helps them
+            NYA targets students and parents with information that helps them
             navigate college preparation, discover opportunities, and understand
             the skills needed for future success.
           </h2>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-navy-100">
-            As a new organization, NYM is beginning with a simple purpose:
+            As a new organization, NYA is beginning with a simple purpose:
             make college and future planning feel more understandable,
             accessible, and community-supported for families.
           </p>
@@ -337,7 +338,7 @@ function Goals() {
       <div className="section-container">
         <Reveal>
           <SectionHeading eyebrow="What We Are Building" title="A foundation for guidance, leadership, and shared learning">
-            These areas describe what NYM is working toward as it launches. They
+            These areas describe what NYA is working toward as it launches. They
             are goals for the community, not claims about past accomplishments.
           </SectionHeading>
         </Reveal>
@@ -374,13 +375,51 @@ function Goals() {
   );
 }
 
+function NeAMSupport() {
+  return (
+    <section id="neam-support" className="bg-sand py-20 sm:py-28">
+      <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <Reveal>
+          <SectionHeading eyebrow="Community Support" title="NYA is supported by NeAM">
+            Nepali Youth of America operates under the Nepalese Association of
+            Michigan (NeAM), connecting our student-led work with a broader
+            community committed to helping Nepali families thrive.
+          </SectionHeading>
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600">
+            With NeAM&apos;s support, NYA can build awareness of its programs,
+            reach more students and parents, and create more opportunities for
+            young people to learn, lead, and contribute.
+          </p>
+        </Reveal>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          {[
+            ["Build awareness", "NeAM helps share NYA's mission, events, and resources with the wider Nepali community."],
+            ["Connect the community", "NYA benefits from NeAM's relationships with families, community leaders, and local partners."],
+            ["Support youth leadership", "NeAM provides an encouraging foundation for students to develop ideas and take meaningful action."],
+            ["Grow together", "This partnership helps NYA strengthen future programs for students and families."]
+          ].map(([title, description], index) => (
+            <Reveal key={title} delay={index * 0.06}>
+              <article className="h-full rounded border border-slate-200 bg-white p-6 shadow-sm">
+                <Handshake className="h-6 w-6 text-saffron" />
+                <h3 className="mt-5 text-lg font-semibold text-navy-950">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Programs() {
   return (
     <section id="programs" className="bg-mist py-20 sm:py-28">
       <div className="section-container">
         <Reveal>
           <SectionHeading eyebrow="Programs" title="Launch programs designed around real family questions">
-            NYM will focus on practical information that helps students and
+            NYA will focus on practical information that helps students and
             parents prepare for college, understand opportunities, and learn
             from community experiences.
           </SectionHeading>
@@ -418,8 +457,8 @@ function Events() {
     <section id="events" className="bg-white py-20 sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <Reveal>
-          <SectionHeading eyebrow="Upcoming Events" title="Join NYM for a virtual introduction session">
-            NYM is hosting a Zoom meeting for students and families to learn
+          <SectionHeading eyebrow="Upcoming Events" title="Join NYA for a virtual introduction session">
+            NYA is hosting a Zoom meeting for students and families to learn
             about the initiative, ask questions, and understand future college
             readiness resources.
           </SectionHeading>
@@ -433,7 +472,7 @@ function Events() {
                   Zoom Meeting
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-navy-950">
-                  NYM Introduction / Breakdown
+                  NYA Introduction / Breakdown
                 </h3>
               </div>
               <a
@@ -448,7 +487,7 @@ function Events() {
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
               Ashesh Dhakal is hosting a scheduled Zoom session to introduce
-              NYM, break down the initiative, and share information with
+              NYA, break down the initiative, and share information with
               students and families.
             </p>
 
@@ -505,8 +544,8 @@ function Team() {
     <section id="team" className="bg-sand py-20 sm:py-28">
       <div className="section-container">
         <Reveal>
-          <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYM">
-            NYM is being started by students who care about leadership,
+          <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYA">
+            NYA is being started by students who care about leadership,
             education, and making useful college-planning information easier
             for families to access.
           </SectionHeading>
@@ -577,14 +616,14 @@ function Support() {
       <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
           <div>
-            <p className="eyebrow text-navy-100">Support NYM</p>
+            <p className="eyebrow text-navy-100">Support NYA</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-normal sm:text-4xl">
               Help make future meetings and resources possible.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-navy-100">
-              NYM is preparing ways for community members to support student and
+              NYA is preparing ways for community members to support student and
               parent information sessions. If you are interested in supporting
-              future programming, share your name and email and the NYM team
+              future programming, share your name and email and the NYA team
               will follow up with details.
             </p>
             <div className="mt-8 grid gap-4 text-sm leading-6 text-navy-100 sm:grid-cols-2">
@@ -622,7 +661,7 @@ function Contact() {
               Share Your Questions
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Use this form to help NYM understand what students and parents
+              Use this form to help NYA understand what students and parents
               want to learn from upcoming meetings and information sessions.
             </p>
             <div className="mt-8 rounded border border-slate-200 bg-mist p-5">
@@ -630,7 +669,7 @@ function Contact() {
                 Where does the form information go?
               </p>
               <p className="mt-2 text-sm leading-7 text-slate-600">
-                This form saves responses so the NYM team can review student
+                This form saves responses so the NYA team can review student
                 and parent questions, plan useful meetings, and follow up when
                 needed.
               </p>
@@ -651,9 +690,10 @@ function Footer() {
     <footer className="border-t border-slate-200 bg-navy-950 py-10 text-white">
       <div className="section-container flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <p className="text-lg font-semibold">Nepali Youth of Michigan</p>
+          <p className="text-lg font-semibold">Nepali Youth of America</p>
           <p className="mt-2 max-w-md text-sm leading-7 text-navy-100">
-            In association with Nepalese Association of Michigan (NeAM).
+            A student-led initiative supported by the Nepalese Association of
+            Michigan (NeAM).
           </p>
         </div>
 
@@ -680,6 +720,7 @@ export default function Home() {
       <main>
         <Hero />
         <Mission />
+        <NeAMSupport />
         <Goals />
         <Programs />
         <Events />

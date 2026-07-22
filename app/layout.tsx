@@ -3,20 +3,20 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://neamyouth.vercel.app"),
-  title: "Nepali Youth of Michigan | College Readiness & Future Success",
+  title: "NYA | Nepali Youth of America",
   description:
-    "Nepali Youth of Michigan helps students and families access mentorship, resources, and opportunities for college preparation and future success.",
+    "Nepali Youth of America helps students and families access mentorship, resources, and opportunities for college preparation and future success.",
   keywords: [
-    "Nepali Youth of Michigan",
-    "NYM",
+    "Nepali Youth of America",
+    "NYA",
     "Nepalese Association of Michigan",
     "NeAM",
     "college readiness",
     "student mentorship",
-    "Michigan Nepali community"
+    "Nepali American community"
   ],
   openGraph: {
-    title: "Nepali Youth of Michigan",
+    title: "Nepali Youth of America",
     description:
       "A community education initiative supporting Nepali students and families through college readiness, mentorship, and future planning.",
     type: "website",

@@ -5,8 +5,8 @@
   <circle cx="892" cy="190" r="72" fill="#1D5EA8"/>
   <circle cx="936" cy="232" r="36" fill="#D9902F"/>
   <path d="M746 84H994C1014.99 84 1032 101.013 1032 122V338C950 307 897 251 855 195C819 147 785 111 746 84Z" fill="#123F73" opacity="0.9"/>
-  <text x="98" y="138" fill="#D9EBFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NEPALI YOUTH OF MICHIGAN</text>
-  <text x="98" y="202" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800">NYM Introduction</text>
+  <text x="98" y="138" fill="#D9EBFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NEPALI YOUTH OF AMERICA</text>
+  <text x="98" y="202" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800">NYA Introduction</text>
   <text x="98" y="278" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800">/ Breakdown</text>
   <text x="100" y="340" fill="#D9EBFF" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500">A virtual information session for students and parents</text>
 
@@ -32,6 +32,6 @@
   <text x="132" y="1230" fill="#092243" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Meeting chat link</text>
   <text x="132" y="1274" fill="#113F7A" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">us05web.zoom.us/launch/jc/88302413887</text>
 
-  <text x="98" y="1352" fill="#52627A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500">In association with the Nepalese Association of Michigan (NeAM)</text>
+  <text x="98" y="1352" fill="#52627A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500">Supported by the Nepalese Association of Michigan (NeAM)</text>
   <text x="98" y="1388" fill="#52627A" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500">Hosted by Ashesh Dhakal</text>
 </svg>
