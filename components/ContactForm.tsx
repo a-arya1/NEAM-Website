@@ -38,10 +38,23 @@ export function ContactForm() {
         body: JSON.stringify(payload)
       });
 
-      const result = await response.json();
+      const responseText = await response.text();
+      let result: { error?: string } = {};
+
+      if (responseText) {
+        try {
+          result = JSON.parse(responseText) as { error?: string };
+        } catch {
+          // Hosting platforms can return an HTML or plain-text error page.
+          // Keep the message shown to visitors useful in that case.
+        }
+      }
 
       if (!response.ok) {
-        throw new Error(result.error || "Something went wrong. Please try again.");
+        throw new Error(
+          result.error ||
+            "We couldn't save your response right now. Please try again in a few minutes."
+        );
       }
 
       form.reset();

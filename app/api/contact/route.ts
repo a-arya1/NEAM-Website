@@ -98,26 +98,34 @@ export async function POST(request: Request) {
     );
   }
 
-  const isDuplicate = await hasRecentDuplicate(
-    email,
-    respondentType,
-    meetingGoals,
-    duplicateWindowMs
-  );
+  try {
+    const isDuplicate = await hasRecentDuplicate(
+      email,
+      respondentType,
+      meetingGoals,
+      duplicateWindowMs
+    );
 
-  if (isDuplicate) {
-    return NextResponse.json({ ok: true, duplicate: true });
+    if (isDuplicate) {
+      return NextResponse.json({ ok: true, duplicate: true });
+    }
+
+    await saveSubmission({
+      name,
+      email,
+      respondentType,
+      studentLocation,
+      highSchool,
+      graduationYear,
+      meetingGoals
+    });
+  } catch (error) {
+    console.error("Unable to save contact submission", error);
+    return NextResponse.json(
+      { error: "We couldn't save your response right now. Please try again in a few minutes." },
+      { status: 503 }
+    );
   }
-
-  await saveSubmission({
-    name,
-    email,
-    respondentType,
-    studentLocation,
-    highSchool,
-    graduationYear,
-    meetingGoals
-  });
 
   return NextResponse.json({ ok: true });
 }

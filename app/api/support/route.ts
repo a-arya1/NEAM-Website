@@ -58,13 +58,21 @@ export async function POST(request: Request) {
     );
   }
 
-  const isDuplicate = await hasRecentSupporterDuplicate(email, duplicateWindowMs);
+  try {
+    const isDuplicate = await hasRecentSupporterDuplicate(email, duplicateWindowMs);
 
-  if (isDuplicate) {
-    return NextResponse.json({ ok: true, duplicate: true });
+    if (isDuplicate) {
+      return NextResponse.json({ ok: true, duplicate: true });
+    }
+
+    await saveSupporterInterest({ name, email });
+  } catch (error) {
+    console.error("Unable to save supporter interest", error);
+    return NextResponse.json(
+      { error: "We couldn't save your information right now. Please try again in a few minutes." },
+      { status: 503 }
+    );
   }
-
-  await saveSupporterInterest({ name, email });
 
   return NextResponse.json({ ok: true });
 }
