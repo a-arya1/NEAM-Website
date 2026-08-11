@@ -2,15 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://neamyouth.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nepaliyouthofamerica.org"),
   title: "NYA | Nepali Youth of America",
   description:
     "Nepali Youth of America helps students and families access mentorship, resources, and opportunities for college preparation and future success.",
   keywords: [
     "Nepali Youth of America",
     "NYA",
-    "Nepalese Association of Michigan",
-    "NeAM",
     "college readiness",
     "student mentorship",
     "Nepali American community"

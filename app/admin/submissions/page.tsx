@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { adminCookieName, isAdminSession } from "@/lib/adminAuth";
-import { getSubmissions } from "@/lib/submissions";
 import { getSupporterInterests } from "@/lib/supporters";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +12,6 @@ export default async function SubmissionsPage() {
   const isAuthorized = isProtected
     ? isAdminSession(cookieStore.get(adminCookieName)?.value)
     : false;
-  const submissions = isAuthorized ? await getSubmissions() : [];
   const supporters = isAuthorized ? await getSupporterInterests() : [];
 
   return (
@@ -23,11 +21,10 @@ export default async function SubmissionsPage() {
           <div>
             <p className="eyebrow">NYA Admin</p>
             <h1 className="mt-3 text-3xl font-semibold text-navy-950">
-              Contact Form Submissions
+              Support & Join Requests
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-              These are responses saved from the NYA student and parent
-              information form.
+              These are requests from people who want to support or join NYA.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -83,10 +80,10 @@ export default async function SubmissionsPage() {
             <section className="rounded border border-slate-200 bg-white shadow-soft">
               <div className="border-b border-slate-100 p-6">
                 <h2 className="text-xl font-semibold text-navy-950">
-                  Support Interest
+                  Support & Join Interest
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
-                  People who want NYA to follow up later about ways to support.
+                  People who want NYA to follow up about joining, volunteering, endorsing, or offering support.
                 </p>
               </div>
               {supporters.length === 0 ? (
@@ -111,76 +108,20 @@ export default async function SubmissionsPage() {
                           {new Date(supporter.createdAt).toLocaleString()}
                         </span>
                       </div>
+                      <p className="mt-4 text-sm font-semibold text-navy-900">
+                        {supporter.interest || "Support programs"}
+                      </p>
+                      {supporter.message ? (
+                        <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                          {supporter.message}
+                        </p>
+                      ) : null}
                     </article>
                   ))}
                 </div>
               )}
             </section>
 
-            <section className="rounded border border-slate-200 bg-white shadow-soft">
-              <div className="border-b border-slate-100 p-6">
-                <h2 className="text-xl font-semibold text-navy-950">
-                  Student and Parent Responses
-                </h2>
-              </div>
-              {submissions.length === 0 ? (
-                <div className="p-6 text-sm text-slate-600">No submissions yet.</div>
-              ) : (
-                <div className="divide-y divide-slate-100">
-                  {submissions.map((submission) => (
-                    <article key={submission.id} className="p-6">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <div>
-                          <h3 className="text-lg font-semibold text-navy-950">
-                            {submission.name}
-                          </h3>
-                          <a
-                            href={`mailto:${submission.email}`}
-                            className="mt-1 inline-flex text-sm font-medium text-navy-700 hover:text-navy-900"
-                          >
-                            {submission.email}
-                          </a>
-                        </div>
-                        <div className="flex flex-wrap gap-2 text-xs font-semibold">
-                          <span className="rounded bg-navy-50 px-3 py-1 text-navy-800">
-                            {submission.respondentType}
-                          </span>
-                          <span className="rounded bg-slate-100 px-3 py-1 text-slate-600">
-                            {new Date(submission.createdAt).toLocaleString()}
-                          </span>
-                        </div>
-                      </div>
-                      <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
-                        <div className="rounded bg-mist p-3">
-                          <dt className="font-semibold text-navy-950">Michigan area</dt>
-                          <dd className="mt-1 text-slate-600">
-                            {submission.studentLocation || "Not provided"}
-                          </dd>
-                        </div>
-                        <div className="rounded bg-mist p-3">
-                          <dt className="font-semibold text-navy-950">High school</dt>
-                          <dd className="mt-1 text-slate-600">
-                            {submission.highSchool || "Not provided"}
-                          </dd>
-                        </div>
-                        <div className="rounded bg-mist p-3">
-                          <dt className="font-semibold text-navy-950">Graduation year</dt>
-                          <dd className="mt-1 text-slate-600">
-                            {submission.graduationYear || "Not provided"}
-                          </dd>
-                        </div>
-                      </dl>
-                      <h3 className="mt-5 text-sm font-semibold text-navy-950">
-                        What they want from a meeting
-                      </h3>
-                      <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                        {submission.meetingGoals}
-                      </p>
-                    </article>
-                  ))}
-                </div>
-              )}
-            </section>
           </div>
         ) : null}
       </div>

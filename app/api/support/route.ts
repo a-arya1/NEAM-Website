@@ -8,6 +8,8 @@ const maxBodyBytes = 5_000;
 const maxLengths = {
   name: 80,
   email: 120
+  , interest: 80
+  , message: 1000
 };
 
 function cleanText(value: unknown) {
@@ -32,19 +34,21 @@ export async function POST(request: Request) {
   const name = cleanText(body?.name);
   const email = cleanText(body?.email).toLowerCase();
   const website = cleanText(body?.website);
+  const interest = cleanText(body?.interest);
+  const message = cleanText(body?.message);
 
   if (website) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!name || !email) {
+  if (!name || !email || !interest) {
     return NextResponse.json(
-      { error: "Please enter your name and email." },
+      { error: "Please enter your name, email, and how you want to get involved." },
       { status: 400 }
     );
   }
 
-  if (name.length > maxLengths.name || email.length > maxLengths.email) {
+  if (name.length > maxLengths.name || email.length > maxLengths.email || interest.length > maxLengths.interest || message.length > maxLengths.message) {
     return NextResponse.json(
       { error: "One or more fields are too long. Please shorten your response." },
       { status: 400 }
@@ -65,7 +69,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, duplicate: true });
     }
 
-    await saveSupporterInterest({ name, email });
+    await saveSupporterInterest({ name, email, interest, message });
   } catch (error) {
     console.error("Unable to save supporter interest", error);
     return NextResponse.json(

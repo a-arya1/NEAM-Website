@@ -8,6 +8,8 @@ export type SupporterInterest = {
   createdAt: string;
   name: string;
   email: string;
+  interest: string;
+  message: string;
 };
 
 type NewSupporterInterest = Omit<SupporterInterest, "id" | "createdAt">;
@@ -38,6 +40,8 @@ async function ensureTable() {
       email TEXT NOT NULL
     )
   `;
+  await sql`ALTER TABLE support_interests ADD COLUMN IF NOT EXISTS interest TEXT NOT NULL DEFAULT 'Support programs'`;
+  await sql`ALTER TABLE support_interests ADD COLUMN IF NOT EXISTS message TEXT NOT NULL DEFAULT ''`;
 }
 
 async function readLocalSupporters(): Promise<SupporterInterest[]> {
@@ -69,6 +73,8 @@ export async function getSupporterInterests(): Promise<SupporterInterest[]> {
       created_at AS "createdAt",
       name,
       email
+      , interest
+      , message
     FROM support_interests
     ORDER BY created_at DESC
   `;
@@ -117,12 +123,14 @@ export async function saveSupporterInterest(supporter: NewSupporterInterest) {
   await ensureTable();
   const sql = getSql();
   await sql`
-    INSERT INTO support_interests (id, created_at, name, email)
+    INSERT INTO support_interests (id, created_at, name, email, interest, message)
     VALUES (
       ${savedSupporter.id},
       ${savedSupporter.createdAt},
       ${savedSupporter.name},
-      ${savedSupporter.email}
+      ${savedSupporter.email},
+      ${savedSupporter.interest},
+      ${savedSupporter.message}
     )
   `;
 

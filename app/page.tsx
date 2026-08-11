@@ -16,18 +16,16 @@ import {
   Video,
   UsersRound
 } from "lucide-react";
-import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Motion";
 import { SupportForm } from "@/components/SupportForm";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
-  { label: "NeAM Support", href: "#neam-support" },
+  { label: "Endorsement", href: "#endorsement" },
   { label: "Programs", href: "#programs" },
   { label: "Events", href: "#events" },
-  { label: "Support", href: "#support" },
+  { label: "Join Us", href: "#join-us" },
   { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" }
 ];
 
 const goals = [
@@ -126,9 +124,7 @@ function Header() {
             <span className="block text-sm font-semibold leading-none text-navy-950">
               Nepali Youth of America
             </span>
-            <span className="mt-1 block text-xs text-slate-500">
-              Supported by NeAM
-            </span>
+            <span className="mt-1 block text-xs text-slate-500">Student-led initiative</span>
           </span>
         </a>
 
@@ -145,10 +141,10 @@ function Header() {
         </nav>
 
         <a
-          href="#contact"
+          href="#join-us"
           className="focus-ring hidden rounded bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-navy-800 md:inline-flex"
         >
-          Get Updates
+          Join Us
         </a>
       </div>
     </header>
@@ -214,8 +210,8 @@ function Hero() {
             and families prepare for higher education and future careers.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="#contact">
-              Share Your Questions <ArrowRight className="h-4 w-4" />
+            <ButtonLink href="#join-us">
+              Support or Join Us <ArrowRight className="h-4 w-4" />
             </ButtonLink>
             <ButtonLink href="#mission" variant="secondary">
               Learn More
@@ -375,33 +371,36 @@ function Goals() {
   );
 }
 
-function NeAMSupport() {
+function Endorsement() {
   return (
-    <section id="neam-support" className="bg-sand py-20 sm:py-28">
+    <section id="endorsement" className="bg-sand py-20 sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
-          <SectionHeading eyebrow="Community Support" title="NYA is supported by NeAM">
-            Nepali Youth of America operates under the Nepalese Association of
-            Michigan (NeAM), connecting our student-led work with a broader
-            community committed to helping Nepali families thrive.
+          <SectionHeading eyebrow="Adult Support" title="Endorsement">
+            Trusted adults help student-led ideas grow. We welcome parents,
+            educators, mentors, and community leaders who believe in NYA&apos;s
+            mission to stand behind our work and share their experience.
           </SectionHeading>
           <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600">
-            With NeAM&apos;s support, NYA can build awareness of its programs,
-            reach more students and parents, and create more opportunities for
-            young people to learn, lead, and contribute.
+            Adult supporters can offer guidance, connect students with useful
+            opportunities, help with events, or simply endorse the initiative
+            and help more families discover it.
           </p>
+          <div className="mt-8">
+            <ButtonLink href="#join-us">Endorse or support NYA</ButtonLink>
+          </div>
         </Reveal>
 
         <div className="grid gap-5 sm:grid-cols-2">
           {[
-            ["Build awareness", "NeAM helps share NYA's mission, events, and resources with the wider Nepali community."],
-            ["Connect the community", "NYA benefits from NeAM's relationships with families, community leaders, and local partners."],
-            ["Support youth leadership", "NeAM provides an encouraging foundation for students to develop ideas and take meaningful action."],
-            ["Grow together", "This partnership helps NYA strengthen future programs for students and families."]
+            ["Parents & guardians", "Encourage students, share family perspectives, and help us understand what support families need."],
+            ["Educators", "Offer insight on college readiness, learning resources, and meaningful student opportunities."],
+            ["Mentors", "Share practical experience and help young people build confidence, leadership, and direction."],
+            ["Community leaders", "Endorse the mission, strengthen outreach, and connect NYA with people who can help."]
           ].map(([title, description], index) => (
             <Reveal key={title} delay={index * 0.06}>
               <article className="h-full rounded border border-slate-200 bg-white p-6 shadow-sm">
-                <Handshake className="h-6 w-6 text-saffron" />
+                <HeartHandshake className="h-6 w-6 text-saffron" />
                 <h3 className="mt-5 text-lg font-semibold text-navy-950">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
               </article>
@@ -610,28 +609,27 @@ function Team() {
   );
 }
 
-function Support() {
+function JoinUs() {
   return (
-    <section id="support" className="bg-navy-950 py-20 text-white sm:py-28">
+    <section id="join-us" className="bg-navy-950 py-20 text-white sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
           <div>
-            <p className="eyebrow text-navy-100">Support NYA</p>
+            <p className="eyebrow text-navy-100">Support or Join Us</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-normal sm:text-4xl">
-              Help make future meetings and resources possible.
+              There is a place for you in what we are building.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-navy-100">
-              NYA is preparing ways for community members to support student and
-              parent information sessions. If you are interested in supporting
-              future programming, share your name and email and the NYA team
-              will follow up with details.
+              Reach out once to volunteer, join the team, endorse our mission,
+              or support future student and parent programming. Tell us how you
+              want to help and the NYA team will follow up with you.
             </p>
             <div className="mt-8 grid gap-4 text-sm leading-6 text-navy-100 sm:grid-cols-2">
               {[
                 "Meeting materials and printed resources",
                 "Student and parent workshops",
                 "Community outreach",
-                "Future event support"
+                "Join the student team"
               ].map((item) => (
                 <div key={item} className="flex gap-3">
                   <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-saffron" />
@@ -650,41 +648,6 @@ function Support() {
   );
 }
 
-function Contact() {
-  return (
-    <section id="contact" className="bg-white py-20 sm:py-28">
-      <div className="section-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <Reveal>
-          <div>
-            <p className="eyebrow">Contact</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-normal text-navy-950 sm:text-4xl">
-              Share Your Questions
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Use this form to help NYA understand what students and parents
-              want to learn from upcoming meetings and information sessions.
-            </p>
-            <div className="mt-8 rounded border border-slate-200 bg-mist p-5">
-              <p className="text-sm font-semibold text-navy-950">
-                Where does the form information go?
-              </p>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
-                This form saves responses so the NYA team can review student
-                and parent questions, plan useful meetings, and follow up when
-                needed.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <ContactForm />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-navy-950 py-10 text-white">
@@ -692,8 +655,7 @@ function Footer() {
         <div>
           <p className="text-lg font-semibold">Nepali Youth of America</p>
           <p className="mt-2 max-w-md text-sm leading-7 text-navy-100">
-            A student-led initiative supported by the Nepalese Association of
-            Michigan (NeAM).
+            A student-led initiative helping students and families prepare for college and future success.
           </p>
         </div>
 
@@ -720,13 +682,12 @@ export default function Home() {
       <main>
         <Hero />
         <Mission />
-        <NeAMSupport />
+        <Endorsement />
         <Goals />
         <Programs />
         <Events />
-        <Support />
+        <JoinUs />
         <Team />
-        <Contact />
       </main>
       <Footer />
     </>

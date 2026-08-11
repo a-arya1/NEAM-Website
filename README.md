@@ -1,6 +1,6 @@
 # Nepali Youth of America Website
 
-Professional nonprofit/youth organization website for Nepali Youth of America (NYA), supported by the Nepalese Association of Michigan (NeAM).
+Professional nonprofit/youth organization website for Nepali Youth of America (NYA).
 
 ## Tech Stack
 
@@ -40,16 +40,9 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 On Vercel, add the same variables in Project Settings → Environment Variables.
 
-## Contact Form Submissions
+## Support and Join Submissions
 
-The student and parent information form posts to `/api/contact` and saves
-responses locally in:
-
-```bash
-data/submissions.json
-```
-
-The support interest form posts to `/api/support` and saves responses locally in:
+The combined support and join form posts to `/api/support` and saves responses locally in:
 
 ```bash
 data/supporters.json
