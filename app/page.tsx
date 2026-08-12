@@ -543,11 +543,60 @@ function Team() {
     <section id="team" className="bg-sand py-20 sm:py-28">
       <div className="section-container">
         <Reveal>
-          <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYA">
-            NYA is being started by students who care about leadership,
-            education, and making useful college-planning information easier
-            for families to access.
+          <SectionHeading eyebrow="Mentorship" title="Guided by experienced community leaders">
+            NYA is grateful for mentors who encourage student leadership,
+            innovation, and meaningful connections with the wider world.
           </SectionHeading>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <article className="mt-12 grid overflow-hidden rounded border border-slate-200 bg-white shadow-soft lg:grid-cols-[0.38fr_0.62fr]">
+            <div className="relative min-h-[420px] bg-navy-50 lg:min-h-[520px]">
+              <Image
+                src="/images/dr-yadu-pokhrel.jpg"
+                alt="Dr. Yadu Pokhrel"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 460px"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+              <span className="w-fit rounded bg-navy-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-navy-800">
+                Mentor &amp; Advisor
+              </span>
+              <h3 className="mt-5 text-3xl font-semibold text-navy-950">
+                Dr. Yadu Pokhrel
+              </h3>
+              <p className="mt-2 text-sm font-semibold leading-6 text-saffron">
+                Red Cedar Distinguished Professor at Michigan State University
+              </p>
+              <p className="mt-6 text-base leading-8 text-slate-600">
+                Dr. Yadu Pokhrel is the Red Cedar Distinguished Professor at
+                Michigan State University and Associate Director of the MSU
+                Asia Hub. He received his education in Nepal, India, Japan, and
+                the United States, and leads multidisciplinary research and
+                educational initiatives spanning water, climate,
+                sustainability, and artificial intelligence.
+              </p>
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                Dr. Pokhrel has established research and educational
+                partnerships across Asia and other regions of the world. He
+                enjoys mentoring students and young professionals and
+                supporting initiatives that inspire youth leadership,
+                innovation, and global engagement.
+              </p>
+            </div>
+          </article>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-20">
+            <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYA">
+              NYA is being started by students who care about leadership,
+              education, and making useful college-planning information easier
+              for families to access.
+            </SectionHeading>
+          </div>
         </Reveal>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
