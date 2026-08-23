@@ -653,7 +653,7 @@ function Team() {
                       src={member.image}
                       alt={`${member.name} profile photo`}
                       fill
-                      className="object-cover"
+                      className="object-contain object-center"
                       sizes="(max-width: 1024px) 100vw, 360px"
                     />
                   ) : (
