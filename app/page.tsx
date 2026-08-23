@@ -106,7 +106,7 @@ const members = [
     bio: "Interested in business, leadership, and contributing to student-centered community initiatives. Co-founded NYA to help families feel more prepared for the future through strong information and community guidance.",
     email: "asheshdhakal47@gmail.com",
     linkedin: "",
-    image: ""
+    image: "/images/ashesh-dhakal.jpg"
   }
 ];
 
