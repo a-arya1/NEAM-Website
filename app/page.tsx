@@ -88,7 +88,7 @@ const members = [
     bio: "Passionate about leadership, education, and creating opportunities for students and families. Founded NYA to help students access guidance, resources, and community support.",
     email: "kishyogiri@gmail.com",
     linkedin: "https://www.linkedin.com/in/kishyo-giri-882173341/",
-    image: ""
+    image: "/images/kishyo-giri.jpg"
   },
   {
     name: "Abhash Aryal",
