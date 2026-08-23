@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nepaliyouthofamerica.org"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nyayouth.vercel.app"),
   title: "NYA | Nepali Youth of America",
   description:
     "Nepali Youth of America helps students and families access mentorship, resources, and opportunities for college preparation and future success.",

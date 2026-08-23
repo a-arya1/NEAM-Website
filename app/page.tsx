@@ -17,12 +17,14 @@ import {
   UsersRound
 } from "lucide-react";
 import { Reveal } from "@/components/Motion";
+import { ProjectApplicationForm } from "@/components/ProjectApplicationForm";
 import { SupportForm } from "@/components/SupportForm";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
   { label: "Endorsement", href: "#endorsement" },
   { label: "Programs", href: "#programs" },
+  { label: "Apply", href: "#project-application" },
   { label: "Events", href: "#events" },
   { label: "Join Us", href: "#join-us" },
   { label: "Team", href: "#team" },
@@ -538,6 +540,48 @@ function Events() {
   );
 }
 
+function ProjectApplication() {
+  return (
+    <section id="project-application" className="bg-sand py-20 sm:py-28">
+      <div className="section-container grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <Reveal>
+          <div className="lg:sticky lg:top-24">
+            <p className="eyebrow">Applications open · 5 students</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-navy-950 sm:text-4xl">
+              Turn a personal interest into a meaningful college application project.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              NYA will select five students and guide each one from an early idea to a finished personal project they can be proud to discuss in college applications.
+            </p>
+            <div className="mt-8 space-y-5 border-t border-slate-200 pt-7">
+              {[
+                ["Choose a strong direction", "Shape an idea around your interests, experiences, or a problem you care about."],
+                ["Make a realistic plan", "Break the project into clear steps, goals, and a timeline you can follow."],
+                ["Build with guidance", "Get feedback and accountability as you research, create, improve, and document your work."],
+                ["Tell the story", "Learn how to explain your process, growth, and impact honestly in applications and interviews."]
+              ].map(([title, description], index) => (
+                <div key={title} className="flex gap-4">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy-900 text-sm font-semibold text-white">{index + 1}</span>
+                  <div>
+                    <h3 className="font-semibold text-navy-950">{title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-7 rounded border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+              No finished idea is required. We are looking for curiosity, commitment, and a willingness to follow through—not a perfect résumé.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <ProjectApplicationForm />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function Team() {
   return (
     <section id="team" className="bg-sand py-20 sm:py-28">
@@ -734,6 +778,7 @@ export default function Home() {
         <Endorsement />
         <Goals />
         <Programs />
+        <ProjectApplication />
         <Events />
         <JoinUs />
         <Team />

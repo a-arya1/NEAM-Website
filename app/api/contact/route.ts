@@ -3,7 +3,12 @@ import { hasRecentDuplicate, saveSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 
-const allowedRespondentTypes = new Set(["Student", "Parent"]);
+const allowedRespondentTypes = new Set([
+  "Student",
+  "Parent",
+  "Question",
+  "Personal Project Applicant"
+]);
 const duplicateWindowMs = 10 * 60 * 1000;
 const maxBodyBytes = 10_000;
 const maxLengths = {
@@ -48,15 +53,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  if (
-    !name ||
-    !email ||
-    !respondentType ||
-    !studentLocation ||
-    !highSchool ||
-    !graduationYear ||
-    !meetingGoals
-  ) {
+  if (!name || !email || !respondentType || !meetingGoals) {
     return NextResponse.json(
       { error: "Please complete every field before submitting." },
       { status: 400 }
@@ -86,12 +83,12 @@ export async function POST(request: Request) {
 
   if (!allowedRespondentTypes.has(respondentType)) {
     return NextResponse.json(
-      { error: "Please choose Student or Parent." },
+      { error: "Please choose a valid response type." },
       { status: 400 }
     );
   }
 
-  if (!/^\d{4}$/.test(graduationYear)) {
+  if (graduationYear && !/^\d{4}$/.test(graduationYear)) {
     return NextResponse.json(
       { error: "Please enter a valid four-digit graduation year." },
       { status: 400 }

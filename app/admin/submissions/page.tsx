@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { adminCookieName, isAdminSession } from "@/lib/adminAuth";
 import { getSupporterInterests } from "@/lib/supporters";
+import { getSubmissions } from "@/lib/submissions";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,10 @@ export default async function SubmissionsPage() {
     ? isAdminSession(cookieStore.get(adminCookieName)?.value)
     : false;
   const supporters = isAuthorized ? await getSupporterInterests() : [];
+  const submissions = isAuthorized ? await getSubmissions() : [];
+  const projectApplications = submissions.filter(
+    (submission) => submission.respondentType === "Personal Project Applicant"
+  );
 
   return (
     <main className="min-h-screen bg-mist py-10">
@@ -77,6 +82,31 @@ export default async function SubmissionsPage() {
 
         {isAuthorized ? (
           <div className="space-y-8">
+            <section className="rounded border border-slate-200 bg-white shadow-soft">
+              <div className="border-b border-slate-100 p-6">
+                <h2 className="text-xl font-semibold text-navy-950">Personal Project Applications</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-600">Students applying for one of the five guided project spots.</p>
+              </div>
+              {projectApplications.length === 0 ? (
+                <div className="p-6 text-sm text-slate-600">No project applications yet.</div>
+              ) : (
+                <div className="divide-y divide-slate-100">
+                  {projectApplications.map((application) => (
+                    <article key={application.id} className="p-6">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <h3 className="text-lg font-semibold text-navy-950">{application.name}</h3>
+                          <a href={`mailto:${application.email}`} className="mt-1 inline-flex text-sm font-medium text-navy-700 hover:text-navy-900">{application.email}</a>
+                        </div>
+                        <span className="rounded bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">{new Date(application.createdAt).toLocaleString()}</span>
+                      </div>
+                      <p className="mt-4 text-sm text-slate-600">{application.highSchool} · Class of {application.graduationYear} · {application.studentLocation}</p>
+                      <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-slate-700">{application.meetingGoals}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </section>
             <section className="rounded border border-slate-200 bg-white shadow-soft">
               <div className="border-b border-slate-100 p-6">
                 <h2 className="text-xl font-semibold text-navy-950">
