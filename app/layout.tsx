@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "A community education initiative supporting Nepali students and families through college readiness, mentorship, and future planning.",
     type: "website",
-    images: ["/images/nym-zoom-poster.svg"]
+    images: ["/images/nym-flyer.jpeg"]
   }
 };
 

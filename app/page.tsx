@@ -10,10 +10,7 @@ import {
   Linkedin,
   Lightbulb,
   Mail,
-  MessageCircle,
-  MapPin,
   Network,
-  Video,
   UsersRound
 } from "lucide-react";
 import { Reveal } from "@/components/Motion";
@@ -109,10 +106,6 @@ const members = [
     image: "/images/ashesh-dhakal.jpg"
   }
 ];
-
-const zoomMeetingUrl =
-  "https://us05web.zoom.us/j/7779407788?pwd=7ljDSKeMLW8ZyZ1bVD5SqqFA3i3a6E.1&omn=88302413887";
-const zoomChatUrl = "https://us05web.zoom.us/launch/jc/88302413887";
 
 function Header() {
   return (
@@ -230,41 +223,22 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.12} className="relative">
-          <div className="relative rounded border border-slate-200 bg-white p-3 shadow-soft">
-            <div className="grid gap-3 lg:grid-cols-[0.92fr_1fr]">
-              <div className="relative aspect-[1086/1448] overflow-hidden rounded bg-white">
-                <Image
-                  src="/images/nym-zoom-poster.svg"
-                  alt="Nepali Youth of America Zoom meeting poster"
-                  fill
-                  priority
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 420px"
-                />
+          <div className="relative overflow-hidden rounded border border-slate-200 bg-navy-950 p-8 text-white shadow-soft sm:p-10">
+            <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-navy-800" />
+            <div className="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-saffron/20" />
+            <div className="relative flex min-h-[390px] flex-col justify-between">
+              <div className="grid h-14 w-14 place-items-center rounded bg-white/10">
+                <CalendarDays className="h-7 w-7 text-saffron" />
               </div>
-              <div className="flex flex-col justify-between rounded bg-mist p-6">
-                <div>
-                  <p className="eyebrow text-navy-800">Upcoming Zoom session</p>
-                  <h2 className="mt-4 text-2xl font-semibold leading-tight text-navy-950">
-                    NYA Introduction / Breakdown
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
-                    Join NYA on August 1 at 7:00 PM Eastern Time for a virtual
-                    session introducing the initiative, explaining what NYA is
-                    building, and sharing how students and parents can ask
-                    questions.
-                  </p>
-                </div>
-                <div className="mt-8 rounded border border-white bg-white p-5">
-                  <a
-                    href={zoomMeetingUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-navy-800"
-                  >
-                    Join Zoom Meeting <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
+              <div>
+                <p className="eyebrow text-navy-100">Next Meeting</p>
+                <h2 className="mt-5 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+                  TBD
+                </h2>
+                <p className="mt-5 max-w-md text-base leading-7 text-navy-100">
+                  We are planning our next community session. Check back soon
+                  for the date, time, and meeting details.
+                </p>
               </div>
             </div>
           </div>
@@ -458,10 +432,9 @@ function Events() {
     <section id="events" className="bg-white py-20 sm:py-28">
       <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <Reveal>
-          <SectionHeading eyebrow="Upcoming Events" title="Join NYA for a virtual introduction session">
-            NYA is hosting a Zoom meeting for students and families to learn
-            about the initiative, ask questions, and understand future college
-            readiness resources.
+          <SectionHeading eyebrow="Upcoming Events" title="Stay tuned for our next community meeting">
+            NYA is planning future sessions for students and families. We will
+            share the date, time, and meeting details here once they are confirmed.
           </SectionHeading>
         </Reveal>
 
@@ -470,68 +443,27 @@ function Events() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-navy-700">
-                  Zoom Meeting
+                  Next Meeting
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-navy-950">
-                  NYA Introduction / Breakdown
+                  To Be Determined
                 </h3>
               </div>
-              <a
-                href={zoomMeetingUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring inline-flex items-center justify-center gap-2 rounded bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-navy-800"
-              >
-                Join Zoom Meeting <ArrowRight className="h-4 w-4" />
-              </a>
+              <span className="inline-flex items-center justify-center rounded bg-navy-50 px-4 py-2 text-sm font-semibold text-navy-800">
+                Details coming soon
+              </span>
             </div>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
-              Ashesh Dhakal is hosting a scheduled Zoom session to introduce
-              NYA, break down the initiative, and share information with
-              students and families.
+              The next NYA meeting date is TBD. Please check back for updates
+              about upcoming programs and community events.
             </p>
 
-            <div className="mt-7 grid gap-4 border-t border-slate-100 pt-6 text-sm text-slate-600 sm:grid-cols-2">
+            <div className="mt-7 border-t border-slate-100 pt-6 text-sm text-slate-600">
               <span className="flex gap-2">
                 <CalendarDays className="h-4 w-4 text-saffron" />
-                Saturday, August 1, 2026 at 7:00 PM Eastern Time
+                Date and time: TBD
               </span>
-              <span className="flex gap-2">
-                <Video className="h-4 w-4 text-saffron" />
-                Meeting ID: 777 940 7788
-              </span>
-              <span className="flex gap-2">
-                <CheckCircle2 className="h-4 w-4 text-saffron" />
-                Passcode: NYM2026
-              </span>
-              <a
-                href={zoomChatUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950"
-              >
-                <MessageCircle className="h-4 w-4 text-saffron" />
-                Meeting chat link
-              </a>
-              <a
-                href="/images/nym-zoom-poster.svg"
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950"
-              >
-                <MapPin className="h-4 w-4 text-saffron" />
-                Open event poster
-              </a>
-              <a
-                href={zoomMeetingUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring flex gap-2 rounded text-navy-800 transition hover:text-navy-950 sm:col-span-2"
-              >
-                <ArrowRight className="h-4 w-4 text-saffron" />
-                Full Zoom link
-              </a>
             </div>
           </article>
         </Reveal>
