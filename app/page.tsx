@@ -2,7 +2,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
-  CalendarDays,
   CheckCircle2,
   GraduationCap,
   Handshake,
@@ -18,11 +17,11 @@ import { ProjectApplicationForm } from "@/components/ProjectApplicationForm";
 import { SupportForm } from "@/components/SupportForm";
 
 const navItems = [
-  { label: "Mission", href: "#mission" },
+  { label: "About", href: "#about" },
   { label: "Endorsement", href: "#endorsement" },
   { label: "Programs", href: "#programs" },
   { label: "Apply", href: "#project-application" },
-  { label: "Events", href: "#events" },
+  { label: "Our Community", href: "#community" },
   { label: "Join Us", href: "#join-us" },
   { label: "Team", href: "#team" },
 ];
@@ -196,7 +195,7 @@ function Hero() {
       <div className="absolute inset-x-0 top-0 h-56 bg-[linear-gradient(180deg,rgba(245,248,251,1),rgba(255,255,255,0))]" />
       <div className="section-container relative grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 lg:grid-cols-[1.04fr_0.96fr] lg:py-20">
         <Reveal>
-          <p className="eyebrow">A student-led information initiative</p>
+          <p className="eyebrow">Students supporting students and families</p>
           <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-normal text-navy-950 sm:text-5xl lg:text-6xl">
             Empowering Nepali Students for College & Future Success
           </h1>
@@ -215,32 +214,66 @@ function Hero() {
 
           <div className="mt-10 border-l-2 border-saffron pl-5">
             <p className="max-w-2xl text-sm leading-7 text-slate-600">
-              NYA is launching as a student-led effort to share useful
-              information, answer common questions, and make college planning
-              easier to understand for families.
+              Led by Nepali students, NYA brings students and families together
+              to share experiences, ask questions, and make college planning
+              easier to understand.
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={0.12} className="relative">
-          <div className="relative overflow-hidden rounded border border-slate-200 bg-navy-950 p-8 text-white shadow-soft sm:p-10">
-            <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-navy-800" />
-            <div className="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-saffron/20" />
-            <div className="relative flex min-h-[390px] flex-col justify-between">
-              <div className="grid h-14 w-14 place-items-center rounded bg-white/10">
-                <CalendarDays className="h-7 w-7 text-saffron" />
-              </div>
-              <div>
-                <p className="eyebrow text-navy-100">Next Meeting</p>
-                <h2 className="mt-5 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-                  TBD
-                </h2>
-                <p className="mt-5 max-w-md text-base leading-7 text-navy-100">
-                  We are planning our next community session. Check back soon
-                  for the date, time, and meeting details.
-                </p>
-              </div>
+          <figure className="overflow-hidden rounded border border-slate-200 bg-navy-950 shadow-soft">
+            <Image
+              src="/images/community-meeting.webp"
+              alt="Students and community members gathered in an NYA online meeting"
+              width={1560}
+              height={1170}
+              priority
+              sizes="(max-width: 1024px) 100vw, 600px"
+              className="h-auto w-full"
+            />
+            <figcaption className="p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-navy-100">Our community in action</p>
+              <h2 className="mt-3 text-2xl font-semibold text-white">Connection starts with a conversation.</h2>
+              <p className="mt-3 text-sm leading-7 text-navy-100">A moment from an NYA virtual community meeting, bringing students and families together.</p>
+              <a href="#community" className="focus-ring mt-5 inline-flex items-center gap-2 rounded text-sm font-semibold text-white">Inside our meetings <ArrowRight className="h-4 w-4" /></a>
+            </figcaption>
+          </figure>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="bg-white py-20 sm:py-28">
+      <div className="section-container grid gap-12 lg:grid-cols-[1fr_1fr]">
+        <Reveal>
+          <SectionHeading eyebrow="Who we are" title="Nepali Youth of America. Student-led, community-supported.">
+            We are a student-led initiative helping Nepali students and their
+            families in the United States navigate college preparation and
+            explore their next steps.
+          </SectionHeading>
+          <p className="mt-5 text-base leading-8 text-slate-600">Founded by Kishyo Giri with co-founders Abhash Aryal and Ashesh Dhakal, NYA creates a place to ask questions, share experiences, and connect with people who can offer guidance.</p>
+          <a href="#team" className="focus-ring mt-6 inline-flex items-center gap-2 rounded text-sm font-semibold text-navy-900">Meet our team and advisor <ArrowRight className="h-4 w-4" /></a>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="rounded border border-slate-200 bg-mist p-7 sm:p-9">
+            <p className="eyebrow">What we do</p>
+            <div className="mt-7 space-y-7">
+              {[
+                ["Bring students and families together", "Host virtual community conversations where students and families can connect and share their questions."],
+                ["Make college preparation easier to understand", "Share information about college planning, applications, scholarships, and ways families can support students."],
+                ["Help students develop their ideas", "Our personal project initiative is designed to guide five students from an early interest to a finished project, with planning, feedback, and support."]
+              ].map(([title, description]) => (
+                <div key={title}>
+                  <h3 className="text-lg font-semibold text-navy-950">{title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">{description}</p>
+                </div>
+              ))}
             </div>
+            <a href="#project-application" className="focus-ring mt-7 inline-flex items-center gap-2 rounded text-sm font-semibold text-navy-900">Explore the project initiative <ArrowRight className="h-4 w-4" /></a>
           </div>
         </Reveal>
       </div>
@@ -280,7 +313,7 @@ function Mission() {
             </div>
             <div className="mt-8 rounded border border-white/10 bg-navy-900/60 p-4">
               <p className="text-sm leading-6 text-navy-100">
-                A launch initiative focused on clear information, thoughtful
+                A student-led initiative focused on clear information, thoughtful
                 guidance, and shared learning for students and families.
               </p>
             </div>
@@ -289,14 +322,13 @@ function Mission() {
         <Reveal delay={0.08}>
           <p className="eyebrow text-navy-100">Our Mission</p>
           <h2 className="max-w-4xl text-3xl font-semibold leading-tight tracking-normal sm:text-5xl">
-            NYA targets students and parents with information that helps them
-            navigate college preparation, discover opportunities, and understand
-            the skills needed for future success.
+            Helping Nepali students and families move forward with clarity,
+            confidence, and community.
           </h2>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-navy-100">
-            As a new organization, NYA is beginning with a simple purpose:
-            make college and future planning feel more understandable,
-            accessible, and community-supported for families.
+            Our purpose is to make college and future planning more understandable
+            and accessible through practical information, student leadership,
+            and support from the community.
           </p>
         </Reveal>
       </div>
@@ -310,8 +342,8 @@ function Goals() {
       <div className="section-container">
         <Reveal>
           <SectionHeading eyebrow="What We Are Building" title="A foundation for guidance, leadership, and shared learning">
-            These areas describe what NYA is working toward as it launches. They
-            are goals for the community, not claims about past accomplishments.
+            Our priorities guide the resources, connections, and opportunities
+            we are developing for students and families.
           </SectionHeading>
         </Reveal>
 
@@ -393,7 +425,7 @@ function Programs() {
     <section id="programs" className="bg-mist py-20 sm:py-28">
       <div className="section-container">
         <Reveal>
-          <SectionHeading eyebrow="Programs" title="Launch programs designed around real family questions">
+          <SectionHeading eyebrow="Programs" title="Our focus: practical support for students and families">
             NYA will focus on practical information that helps students and
             parents prepare for college, understand opportunities, and learn
             from community experiences.
@@ -427,46 +459,36 @@ function Programs() {
   );
 }
 
-function Events() {
+function Community() {
   return (
-    <section id="events" className="bg-white py-20 sm:py-28">
-      <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+    <section id="community" className="bg-white py-20 sm:py-28">
+      <div className="section-container">
         <Reveal>
-          <SectionHeading eyebrow="Upcoming Events" title="Stay tuned for our next community meeting">
-            NYA is planning future sessions for students and families. We will
-            share the date, time, and meeting details here once they are confirmed.
+          <SectionHeading eyebrow="Community in action" title="A look inside our meetings">
+            NYA brings people together online. These moments from a virtual
+            meeting show the student team and the wider community behind our work.
           </SectionHeading>
         </Reveal>
-
-        <Reveal delay={0.1}>
-          <article className="rounded border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-navy-700">
-                  Next Meeting
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold text-navy-950">
-                  To Be Determined
-                </h3>
-              </div>
-              <span className="inline-flex items-center justify-center rounded bg-navy-50 px-4 py-2 text-sm font-semibold text-navy-800">
-                Details coming soon
-              </span>
-            </div>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
-              The next NYA meeting date is TBD. Please check back for updates
-              about upcoming programs and community events.
-            </p>
-
-            <div className="mt-7 border-t border-slate-100 pt-6 text-sm text-slate-600">
-              <span className="flex gap-2">
-                <CalendarDays className="h-4 w-4 text-saffron" />
-                Date and time: TBD
-              </span>
-            </div>
-          </article>
-        </Reveal>
+        <div className="mt-12 grid items-start gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+          <Reveal>
+            <figure className="overflow-hidden rounded border border-slate-200 bg-mist">
+              <Image src="/images/community-meeting.webp" alt="NYA virtual meeting with students, families, and community participants in a Zoom gallery" width={1560} height={1170} sizes="(max-width: 1024px) 100vw, 740px" className="h-auto w-full" />
+              <figcaption className="p-6">
+                <h3 className="text-xl font-semibold text-navy-950">Coming together as a community</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-600">Students and families joining an NYA virtual meeting. Shared conversations are part of how we build connections and learn from one another.</p>
+              </figcaption>
+            </figure>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <figure className="overflow-hidden rounded border border-slate-200 bg-mist">
+              <Image src="/images/student-team-meeting.webp" alt="NYA student leaders Ashesh Dhakal, Kishyo Giri, and Abhash Aryal on a video call" width={1170} height={1560} sizes="(max-width: 1024px) 100vw, 440px" className="h-auto w-full" />
+              <figcaption className="p-6">
+                <h3 className="text-xl font-semibold text-navy-950">The students behind NYA</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-600">Kishyo Giri, Abhash Aryal, and Ashesh Dhakal connecting online as part of NYA.</p>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -568,7 +590,7 @@ function Team() {
         <Reveal>
           <div className="mt-20">
             <SectionHeading eyebrow="Meet the Team" title="Student leadership behind NYA">
-              NYA is being started by students who care about leadership,
+              NYA is led by students who care about leadership,
               education, and making useful college-planning information easier
               for families to access.
             </SectionHeading>
@@ -590,7 +612,7 @@ function Team() {
                     />
                   ) : (
                     <div className="flex h-full items-center justify-center text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
-                      Add Photo
+                      AA
                     </div>
                   )}
                 </div>
@@ -706,12 +728,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <About />
         <Mission />
         <Endorsement />
         <Goals />
         <Programs />
         <ProjectApplication />
-        <Events />
+        <Community />
         <JoinUs />
         <Team />
       </main>
